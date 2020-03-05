@@ -6,6 +6,9 @@
 
 {% block section %}
     <h1 class="text-center">Task Master</h1>
+    {% if tasks|length < 1 %}
+    <h2 class="text-center">There is no tasks here. Create one below:</h2>
+    {% else %}
     <div class="table-responsive">
     <table class="table-stripped table-bordered table-hover mx-auto">
         <tr>
@@ -28,7 +31,7 @@
         {% endfor %}
     </table>
 </div>
-
+{% endif %}
     <form action="/" method="POST" class="form-inline justify-content-center">
         <div class="form-group">
         <input type="text" name="content" id="content" class="form-control">
