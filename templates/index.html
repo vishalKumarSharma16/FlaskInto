@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block head %}
+<title> Task Master </title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block section %}
+    <h1 class="text-center">Task Master</h1>
+    <div class="table-responsive">
+    <table class="table-stripped table-bordered table-hover mx-auto">
+        <tr>
+            <th class="px-3 py-1">Id</th>
+            <th class="px-3 py-1">Task</th>
+            <th class="px-3 py-1">
+                Actions
+            </th>
+        </tr>
+        {% for t in tasks %}
+        <tr>
+            <td class="px-3 py-1 text-center">{{t.id}}</td>
+            <td class="px-3 py-1 text-center">{{t.content}}</td>
+            <td class="px-3 py-1 text-center">
+                <a href="/delete/{{t.id}}">Delete</a>
+                <br>
+                <a href="/update/{{t.id}}">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+    <form action="/" method="POST" class="form-inline justify-content-center">
+        <div class="form-group">
+        <input type="text" name="content" id="content" class="form-control">
+        <input type="submit" value="Add Task" class="form-control btn btn-sm btn-outline-primary">
+    </div>
+    </form>
+
+
+{% endblock %}
