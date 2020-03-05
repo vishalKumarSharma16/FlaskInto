@@ -22,3 +22,8 @@ python app.py
 ```
 
 It will run on localhost:5000
+
+## Deploying to heroku
+> heroku login
+> heroku create todo --buildpack heroku/python
+
